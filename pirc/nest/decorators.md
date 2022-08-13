@@ -6,7 +6,7 @@ date: 2022-08-13T17:22:51Z
 Typescript Decorators and Metadata
 ---
 
-While learning about NestJS, there was something in particular that caught my attention. Any class in nest that has the `@Injectable` decorator can have dependencies injected into it. The crazy thing is that in one of these classes, you can specify a parameter and it's type in the constructor, and nest is able to use the type as a token and automatically inject the appropriate dependency. Here's an example:
+While learning about NestJS, there was something in particular that caught my attention. Any class in nest that has the `@Injectable` decorator can have dependencies injected into it. The crazy thing is that in one of these classes, you can specify a parameter and its type in the constructor, and nest is able to use the type as a token and automatically inject the appropriate dependency. Here's an example:
 
 ```Typescript
 import UserRepo from '...';
