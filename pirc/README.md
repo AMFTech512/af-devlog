@@ -15,6 +15,7 @@ This is a web-based project that aims to fill important gaps of knowledge in cer
     - Creatign custom decorators
   - Testing
   - Microservice architecture
+  - Load balancing
   - Workers and queues
   - Logging
   - Auth
