@@ -6,6 +6,8 @@ date: 2022-08-15T14:19:58Z
 Basic CQL Commands
 ---
 
+This info is from DS201 on [datastax academy](https://academy.datastax.com).
+
 ### A few notes about syntax
 - If the name of keyspace, table, MV, etc has a capital letter, you need to wrap it in double quotes. E.g. `select * usersById;` will fail, but `select * from "usersById";` won't.
 - String values go in single quotes (not double quotes). E.g. your query would look like `select * from users where email='austin@austinfay.com';`.
@@ -16,6 +18,8 @@ Basic CQL Commands
 ## Commands
 
 Here are some basic CQL commands that you will frequently, so it might be a good idea to memorize the syntax. This page will be focused on syntax. I'll save the details of choosing primary keys, replication, etc for other pages.
+
+This is a quick reference list, but better documentation can be found at https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useAboutCQL.html.
 
 ### Create a keyspace
 
