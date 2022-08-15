@@ -6,7 +6,7 @@ date: 2022-08-15T14:19:58Z
 Basic CQL Commands
 ---
 
-This info is from DS201 on [datastax academy](https://academy.datastax.com).
+This info is from DS201: Exercise 2 and 3 on [datastax academy](https://academy.datastax.com).
 
 ### A few notes about syntax
 - If the name of keyspace, table, MV, etc has a capital letter, you need to wrap it in double quotes. E.g. `select * usersById;` will fail, but `select * from "usersById";` won't.
