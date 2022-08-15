@@ -10,7 +10,7 @@ Learned from this stackoverflow post: https://stackoverflow.com/questions/308645
 
 I was dev-tooling Youtube and found that they use a standard `<video>` tag to display the video, but the url was set to something weird like `blob:https://youtube.com/some-uuid`. I tried to follow the url but it didn't exist. It turns out that blob urls only exist on the client (it's like a virtual url). Basically, you can create a blob (which is basically an object with binary data) and create a url for it, and then any element on your page can use that url as its source. Pretty neat.
 
-Here's some sample code that I wrote:
+Here's some sample code that I wrote that generates an html page on the fly and renders it in an iframe:
 ```html
 <!DOCTYPE html>
 <html>
