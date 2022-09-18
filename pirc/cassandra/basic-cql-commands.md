@@ -95,3 +95,20 @@ WHERE tag = 'cassandra';
 ```sql
 TRUNCATE videos;
 ```
+
+### Query and sort results
+
+```sql
+SELECT *
+FROM videos_by_tag
+ORDER BY added_date ASC;
+```
+
+## Query for before/after timestamp
+
+```sql
+SELECT *
+FROM videos_by_tag
+WHERE tag = 'cassandra' and added_date >= '2013-1-1'
+ORDER BY added_date ASC;
+```
