@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 1
+  selector:
+    # this will match the label defined in template->metadata->labels and create mongo-1 mongo-2 etc if there were multiple replicas
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        # this is a way to identify pods in this deployment
+        app: webapp
+    spec:
+      containers:
+      - name: mongodb
+        image: nanajanashia/k8s-demo-app:v1.0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_NAME
+          # use this to reference the secrets in mongo-secret.yaml
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: USER_PWD
+          # use this to reference the secrets in mongo-secret.yaml
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password
+        - name: DB_URL
+          # use this to reference the key-values in mongo-config.yaml
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  # use this to specify exposing a port on the node itself
+  type: NodePort
+  selector:
+    # this corresponds to the Deployment->spec->template->metadata->labels->app
+    app: webapp
+  ports:
+    - protocol: TCP
+      # the port that clients will connect to on this service;
+      # for this we'll just use the same port because clients will be expecting to 
+      # connect to a mongodb instance
+      port: 3000
+      # the port to forward traffic to on the pod
+      targetPort: 3000
+      nodePort: 30100
